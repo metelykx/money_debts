@@ -13,11 +13,17 @@ struct ContentView: View {
         ZStack(alignment: .top) {
             HeaderView()
             .zIndex(1)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     MainViewContentHeader()
+                    VStack(alignment: .leading, spacing: 19) {
+                        PaymentCard()
+                        PaymentCard()
+                        PaymentCard()
+                        PaymentCard()
+                    }
                 }
-                .padding(.top, 140)
+                .padding(.top, 130)
             }
         }
         .padding(.horizontal)
