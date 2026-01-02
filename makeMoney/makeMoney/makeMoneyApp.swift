@@ -16,6 +16,7 @@ struct makeMoneyApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                
         }
     }
 }
