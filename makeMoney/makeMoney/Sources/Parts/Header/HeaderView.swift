@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text("723 434 $")
                     .lato(font:.bold,size: 27)
@@ -31,10 +31,14 @@ struct HeaderView: View {
                     }
                 }
             }
-            VStack {
-                Text("")
-                Text("")
-            }
+            VStack(alignment: .leading) {
+                Text("Cумма долга")
+                    .lato(font: .bold, size: 32)
+                Text("15 декабря")
+                    .lato(font: .light, size: 16)
+            }.foregroundStyle(.appYellow)
         }
+        .padding(.bottom, 20)
+        .background(.appBlack)
     }
 }

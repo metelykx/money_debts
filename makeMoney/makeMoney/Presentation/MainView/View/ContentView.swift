@@ -14,9 +14,13 @@ struct ContentView: View {
             HeaderView()
             .zIndex(1)
             ScrollView {
-                    
+                VStack(alignment: .leading) {
+                    MainViewContentHeader()
+                }
+                .padding(.top, 140)
             }
         }
+        .padding(.horizontal)
         .background(.appBlack)
     }
 }
