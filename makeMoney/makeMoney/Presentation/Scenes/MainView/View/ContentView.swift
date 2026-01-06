@@ -24,6 +24,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.top, 130)
+                .padding(.bottom, 70)
             }
         }
         .padding(.horizontal)
