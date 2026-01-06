@@ -18,7 +18,7 @@ struct MainTabView: View {
             TabView(selection: $selectionPage) {
                 ContentView()
                     .tag(TabPage.main)
-                Text("")
+                PaymentsView()
                     .tag(TabPage.paymentList)
             }
             

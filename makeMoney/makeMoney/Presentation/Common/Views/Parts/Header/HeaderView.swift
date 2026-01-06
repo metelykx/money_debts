@@ -8,33 +8,53 @@
 import SwiftUI
 
 struct HeaderView: View {
+    var page: HeaderViewContent
+    var action: () -> Void
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("723 434 $")
+                Text("\(page.totalPrice)$")
                     .lato(font:.bold,size: 27)
                     .foregroundStyle(.white)
                     .offset(y: -2)
                 Spacer()
-                Button {
-                    //
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(.appYellow)
-                            .frame(width: 25)
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:11)
-                            .foregroundStyle(.appBlack)
+                if page.pageType == .main {
+                    Button {
+                        action()
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(.appYellow)
+                                .frame(width: 25)
+                            Image(systemName: "plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:11)
+                                .foregroundStyle(.appBlack)
+                        }
                     }
                 }
+               
             }
             VStack(alignment: .leading) {
-                Text("Cумма долга")
-                    .lato(font: .bold, size: 32)
-                Text("15 декабря")
+                HStack {
+                    Text("\(page.title)")
+                        .lato(font: .bold, size: 32)
+                    Spacer()
+                    if page.pageType == .paymentList {
+                        Button {
+                            action()
+                        } label: {
+                            Image(systemName: "calendar")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 23, height: 23)
+                                .padding(.top, 4)
+                        }
+                    }
+                }
+                
+                Text(page.date)
                     .lato(font: .light, size: 16)
             }.foregroundStyle(.appYellow)
         }

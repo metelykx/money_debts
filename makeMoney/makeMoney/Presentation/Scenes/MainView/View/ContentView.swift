@@ -11,7 +11,9 @@ import CoreData
 struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
-            HeaderView()
+            HeaderView(page: HeaderViewContent(totalPrice: "723 434", title: "Сумма долга", date: "12 декабря", pageType: .main), action: {
+                //
+            })
             .zIndex(1)
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
