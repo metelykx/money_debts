@@ -11,7 +11,9 @@ struct SolidButton : View {
     var text: String
     var color: Color
     var solid: Color
+    var backgroundColor: Color = .appBlack
     var isFull: Bool = false
+    var action: (() -> Void)?
     var body: some View {
         Button {
             //
@@ -22,7 +24,7 @@ struct SolidButton : View {
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
                 .foregroundStyle(isFull ? .appBlack : color)
-                .background(isFull ? solid: .appBlack)
+                .background(isFull ? solid: backgroundColor)
                 .clipShape(Capsule())
                 .overlay {
                     Capsule()

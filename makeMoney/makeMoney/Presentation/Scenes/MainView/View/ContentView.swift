@@ -9,10 +9,11 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @State var isShow: Bool = false
     var body: some View {
         ZStack(alignment: .top) {
             HeaderView(page: HeaderViewContent(totalPrice: "723 434", title: "Сумма долга", date: "12 декабря", pageType: .main), action: {
-                print("добавить")
+                isShow.toggle()
             })
             .zIndex(1)
             ScrollView(showsIndicators: false) {
@@ -31,6 +32,9 @@ struct ContentView: View {
         }
         .padding(.horizontal)
         .background(.appBlack)
+        .sheet(isPresented: $isShow) {
+            AddView()
+        }
     }
 }
 
