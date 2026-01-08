@@ -50,8 +50,8 @@ struct PaymentCard: View {
                 }
             }
             HStack {
-                ButtonView()
-                SolidButton()
+                ButtonView(text: "Оплатить", color: .white, fillColor: .appBlack)
+                SolidButton(text: "Оплатить", color: .appBlack, solid: .appBlack)
             }
             
         }

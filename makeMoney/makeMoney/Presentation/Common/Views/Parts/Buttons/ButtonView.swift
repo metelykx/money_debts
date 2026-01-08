@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ButtonView: View {
+    var text: String
+    var color: Color
+    var fillColor: Color
     var body: some View {
         Button {
             //
         } label: {
-            Text("Оплатить")
+            Text(text)
                 .lato(font:.light, size: 12)
-                .foregroundStyle(.white)
+                .foregroundStyle(color)
                 .padding(.top, 12)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
-                .background(.appBlack)
+                .background(fillColor)
                 .clipShape(.capsule)
             
         }

@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             HeaderView(page: HeaderViewContent(totalPrice: "723 434", title: "Сумма долга", date: "12 декабря", pageType: .main), action: {
-                //
+                print("добавить")
             })
             .zIndex(1)
             ScrollView(showsIndicators: false) {
