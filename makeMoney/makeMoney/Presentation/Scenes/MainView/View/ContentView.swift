@@ -10,20 +10,28 @@ import CoreData
 
 struct ContentView: View {
     @State var isShow: Bool = false
+    @State var payType: PayType = .mounthly
     var body: some View {
         ZStack(alignment: .top) {
             HeaderView(page: HeaderViewContent(totalPrice: "723 434", title: "Сумма долга", date: "12 декабря", pageType: .main), action: {
                 isShow.toggle()
-            })
+            }, date: .constant(.now))
             .zIndex(1)
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
-                    MainViewContentHeader()
+                    MainViewContentHeader(payType: $payType)
                     VStack(alignment: .leading, spacing: 19) {
-                        PaymentCard()
-                        PaymentCard()
-                        PaymentCard()
-                        PaymentCard()
+                        switch payType {
+                        case .mounthly:
+                            PaymentCard()
+                            PaymentCard()
+                            PaymentCard()
+                            PaymentCard()
+                        case .oneTime:
+                            PaymentCard()
+                            PaymentCard()
+                        }
+                        
                     }
                 }
                 .padding(.top, 130)

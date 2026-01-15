@@ -5,7 +5,7 @@
 //  Created by Denis Ivaschenko on 15.01.2026.
 //
 
-import SwiftUI
+import Foundation
 
 enum PayType {
     case mounthly

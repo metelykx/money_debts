@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct MainViewContentHeader: View {
+    @Binding var payType: PayType
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -16,18 +17,18 @@ struct MainViewContentHeader: View {
                 Spacer()
                 HStack(spacing: 16) {
                     Button {
-                        //
+                        payType = .mounthly
                     } label: {
                         Text("ежемесячно")
-                            .lato(font: .bold, size: 12)
+                            .lato(font: payType == . mounthly ? .bold : .light, size: 12)
                             .foregroundStyle(.white)
                     }
                     
                     Button {
-                        //
+                        payType = .oneTime
                     } label: {
                         Text("разово")
-                            .lato(font: .light, size: 12)
+                            .lato(font: payType == .oneTime  ? .bold : .light, size: 12)
                             .foregroundStyle(.white)
                     }
                 }
