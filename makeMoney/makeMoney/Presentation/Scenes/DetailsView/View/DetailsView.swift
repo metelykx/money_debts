@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var isNotification: Bool = false
+    @Binding var path: NavigationPath
     var body: some View {
         VStack {
             DetailsViewHeader()
@@ -82,12 +83,8 @@ struct DetailsView: View {
             }
         }.padding(.horizontal, 20)
         .background(.appBlack)
+        .navigationBarHidden(true)
     }
-}
-
-
-#Preview {
-    DetailsView()
 }
 
 
@@ -95,7 +92,7 @@ struct DetailsViewHeader: View {
     var body: some View {
         HStack {
             Button {
-                //
+             //
             } label: {
                 Image(systemName: "chevron.left")
                     .resizable()

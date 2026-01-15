@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     @State var isShow: Bool = false
     @State var payType: PayType = .mounthly
+    @Binding var path: NavigationPath
     var body: some View {
         ZStack(alignment: .top) {
             HeaderView(page: HeaderViewContent(totalPrice: "723 434", title: "Сумма долга", date: "12 декабря", pageType: .main), action: {
@@ -23,13 +24,13 @@ struct ContentView: View {
                     VStack(alignment: .leading, spacing: 19) {
                         switch payType {
                         case .mounthly:
-                            PaymentCard()
-                            PaymentCard()
-                            PaymentCard()
-                            PaymentCard()
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
                         case .oneTime:
-                            PaymentCard()
-                            PaymentCard()
+                            PaymentCard(path: $path)
+                            PaymentCard(path: $path)
                         }
                         
                     }

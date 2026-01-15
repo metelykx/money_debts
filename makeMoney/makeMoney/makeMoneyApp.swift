@@ -10,13 +10,21 @@ import CoreData
 
 @main
 struct makeMoneyApp: App {
+    @State var path: NavigationPath = .init()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                MainTabView()
+            NavigationStack(path: $path) {
+                MainTabView(path: $path)
+                    .navigationBarHidden(true)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .navigationDestination(for: NavigationPage.self) { page in
+                        switch page {
+                        case .details :
+                            DetailsView(path: $path)
+                        }
+                    }
             }
                 
         }
