@@ -15,6 +15,7 @@ struct AddView: View {
     @State var isShowCalendar = false
     @State var date: Date = .now
     @State var isAdded: Bool = false
+    @State var viewModel: AddViewModel = Assembly.createAddViewModel()
     
     var body: some View {
         VStack(alignment: .center, spacing: 27) {
@@ -128,7 +129,9 @@ struct AddView: View {
             
             
             Spacer()
-            ButtonView(text: "Добавить", color: .appBlack, fillColor: .appYellow)
+            ButtonView(text: "Добавить", color: .appBlack, fillColor: .appYellow) {
+                viewModel.createNewPayment()
+            }
             
         }.padding(.horizontal, 10)
             .padding(.vertical, 20)

@@ -26,6 +26,9 @@ struct makeMoneyApp: App {
                         }
                     }
             }
+            .onAppear {
+                print(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first)
+            }
                 
         }
     }

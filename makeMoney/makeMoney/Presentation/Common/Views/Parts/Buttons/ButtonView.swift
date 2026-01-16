@@ -11,9 +11,10 @@ struct ButtonView: View {
     var text: String
     var color: Color
     var fillColor: Color
+    var action: (() -> Void)?
     var body: some View {
         Button {
-            //
+            action?()
         } label: {
             Text(text)
                 .lato(font:.light, size: 12)

@@ -12,7 +12,12 @@ protocol CreatePaymentUseCase: AnyObject {
 }
 
 class CreatePaymentUseCaseImp: CreatePaymentUseCase {
-    func execute(payment: Payment) {
-        <#code#>
+    
+    private let repository: CreatePaymentRepository
+    init(repository: CreatePaymentRepository) {
+        self.repository = repository
+    }
+    func execute(payment: Payment) throws {
+        try repository.createPayment(payment: payment)
     }
 }
